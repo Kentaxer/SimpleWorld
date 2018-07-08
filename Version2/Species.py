@@ -146,7 +146,7 @@ Food just sits there and spins but doesn't infect anyone.
         ins1 = Instruction(OpCode.LEFT, None)
         ins2 = Instruction(OpCode.GO, 1)
         inss = [ins0, ins1, ins2]
-        return Species("FlyTrap", inss)
+        return Species("Food", inss)
 
 
     @staticmethod
