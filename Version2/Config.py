@@ -1,10 +1,10 @@
 class Config:
-    MAXHEIGHT = 10
+    MAXHEIGHT = 6
     MAXWIDTH = 6
     HILLSKIPROUND = 1 #how many round would be hang by the hill
 
     #The generating possibility for creature
-    CREATURE_Y = 1 #Have creature
+    CREATURE_Y = 2 #Have creature
     CREATURE_N = 5 #No creature
 
     #The generating possibility for species
@@ -13,14 +13,14 @@ class Config:
     SPECIES_K = 0 #Attack all
     SPECIES_N = 0 #Attack non empty
     SPECIES_H = 0 #Hop all
-    SPECIES_AL = 0
-    SPECIES_FL = 0
-    SPECIES_FO = 1
-    SPECIES_HO = 0
-    SPECIES_LA = 0
-    SPECIES_LR = 1
-    SPECIES_PA = 0
-    SPECIES_RR = 1
+    SPECIES_AL = 1 #Altrover
+    SPECIES_FL = 0 #Flytrap
+    SPECIES_FO = 3 #Food
+    SPECIES_HO = 0 #Hop
+    SPECIES_LA = 0 #Landmine
+    SPECIES_LR = 1 #Lrover
+    SPECIES_PA = 3 #Pathfinder
+    SPECIES_RR = 1 #Rrover
 
     #The generating possibility for terrian
     TERRIAN_H = 1 #Hill

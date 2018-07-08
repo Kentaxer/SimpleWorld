@@ -104,7 +104,7 @@ alternatively.
         ins18 = Instruction(OpCode.GO, 10)
         inss = [ins0, ins1, ins2,ins3, ins4, ins5, ins6, ins7, ins8, ins9, ins10,  \
         ins11, ins12, ins13, ins14, ins15, ins16, ins17, ins18]
-        return Species("Alt_rover", inss)
+        return Species("Altrover", inss)
 
 
 
@@ -130,7 +130,7 @@ Flytraps do well when they clump.
         ins5 = Instruction(OpCode.GO, 1)
         
         inss = [ins0, ins1, ins2,ins3, ins4, ins5]
-        return Species("FlyTrap", inss)
+        return Species("Flytrap", inss)
 
     @staticmethod
     def createFoodSpecies():

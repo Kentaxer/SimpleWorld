@@ -202,7 +202,8 @@ class SimpleWorld:
         
 
     def drawWorld(self):
-        msg = "\n"
+        msg = "\n Active creature: {0}\n".format(self.__activeCreature.speciesName)
+        sumDict = {}
      
         for heightIndex in range(self.__worldHeight):
             for widthIndex in range(self.__worldWidth):
@@ -254,6 +255,11 @@ class SimpleWorld:
                     elif creature.direction == Direction.SOUTH:
                         msg += "V"
 
+                    if sumDict.has_key(creature.speciesName) == False:
+                        sumDict[creature.speciesName] = 1
+                    else:
+                        sumDict[creature.speciesName] += 1
+
                 else:
                     msg += "-------"
                 
@@ -263,7 +269,10 @@ class SimpleWorld:
                     msg += "| "
             
             msg += "\n"
-        
+
+        msg += " "
+        msg += str(sumDict)
+        msg += "\n"
         print(msg)
 
 
