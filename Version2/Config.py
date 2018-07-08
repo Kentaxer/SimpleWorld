@@ -1,5 +1,5 @@
 class Config:
-    MAXHEIGHT = 6
+    MAXHEIGHT = 10
     MAXWIDTH = 6
     HILLSKIPROUND = 1 #how many round would be hang by the hill
 
@@ -13,14 +13,14 @@ class Config:
     SPECIES_K = 0 #Attack all
     SPECIES_N = 0 #Attack non empty
     SPECIES_H = 0 #Hop all
-    SPECIES_AL = 5
-    SPECIES_FL = 5
-    SPECIES_FO = 5
-    SPECIES_HO = 5
-    SPECIES_LA = 5
-    SPECIES_LR = 5
-    SPECIES_PA = 5
-    SPECIES_RR = 5
+    SPECIES_AL = 0
+    SPECIES_FL = 0
+    SPECIES_FO = 1
+    SPECIES_HO = 0
+    SPECIES_LA = 0
+    SPECIES_LR = 1
+    SPECIES_PA = 0
+    SPECIES_RR = 1
 
     #The generating possibility for terrian
     TERRIAN_H = 1 #Hill

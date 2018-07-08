@@ -23,37 +23,35 @@ class SimpleWorld:
 
         while self.isGameOver == False:
 
-            currentIndex = self.__currentRound % self.__creatureNumber
-            currentCreature = self.__creatures[currentIndex]
-            self.__activeCreature = currentCreature
+            self.setActiveCreature()
 
             print("===Round {0}===".format(self.__currentRound))
             self.drawWorld()
 
             # check environment
-            nextPos = currentCreature.getNextPosition()
+            nextPos = self.__activeCreature.getNextPosition()
             isEmpty = self.isEmpty(nextPos)
-            isWall = self.isWall(nextPos, currentCreature)
-            isEnemy = self.isEnemy(nextPos, currentCreature)
-            isSame = self.isSame(nextPos, currentCreature)
+            isWall = self.isWall(nextPos, self.__activeCreature)
+            isEnemy = self.isEnemy(nextPos, self.__activeCreature)
+            isSame = self.isSame(nextPos, self.__activeCreature)
             isHill = self.isTerrian(nextPos, Terrian.HILL)
 
 
             # get execute code
-            executableOpcode = currentCreature.getExecutableOpcode(isEnemy, isEmpty, isSame, isWall)
+            executableOpcode = self.__activeCreature.getExecutableOpcode(isEnemy, isEmpty, isSame, isWall)
 
             # execute op
             if executableOpcode == OpCode.LEFT:
-                currentCreature.turnLeft()
+                self.__activeCreature.turnLeft()
 
             elif executableOpcode == OpCode.RIGHT:
-                currentCreature.turnRight()
+                self.__activeCreature.turnRight()
 
             elif executableOpcode == OpCode.HOP:
-                self.hopCurrentCreature(currentCreature, isWall, isEmpty, isHill)
+                self.hopCurrentCreature(self.__activeCreature, isWall, isEmpty, isHill)
                     
             elif executableOpcode == OpCode.INFECT:
-                self.infectTargetEnemy(nextPos, currentCreature)                
+                self.infectTargetEnemy(nextPos, self.__activeCreature)                
 
             # draw world after behavior
             self.drawWorld()
@@ -68,6 +66,12 @@ class SimpleWorld:
             # next round
             self.__currentRound += 1
 
+        # Show winner
+        if self.isGameOver:
+            self.setActiveCreature()
+            self.drawWorld()
+            print("Winner is {0}".format(self.__activeCreature.speciesName))
+
         print("Game Over!")
     
     @property
@@ -78,6 +82,11 @@ class SimpleWorld:
                 return False
 
         return True
+
+    def setActiveCreature(self):
+        currentIndex = self.__currentRound % self.__creatureNumber
+        currentCreature = self.__creatures[currentIndex]
+        self.__activeCreature = currentCreature
 
     def isEmpty(self, pos):
         if self.isOutBoundary(pos):
