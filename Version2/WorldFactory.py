@@ -25,6 +25,14 @@ def generateDistr():
     species3 = Species("KillAllPower", inss3)
     species4 = Species("NoEmptyAttackPower", inss4)
     species5 = Species("HopAllpower", inss5)
+    spec_al = Species.createAltRoverSpecies()
+    spec_fl = Species.createFlyTrapSpecies()
+    spec_fo = Species.createFoodSpecies()
+    spec_ho = Species.createHopSpecies()
+    spec_la = Species.createLandmineSpecies()
+    spec_lr = Species.createLroverSpecies()
+    spec_pa = Species.createPathFinderSpecies()
+    spec_rr = Species.createRroverSpecies()
 
     abilites1 = [Ability.FLY, Ability.ARCH]
     abilites2 = [Ability.ARCH]
@@ -50,6 +58,23 @@ def generateDistr():
         speciesDistr.append(species4)
     for number in range(Config.SPECIES_H):
         speciesDistr.append(species5)
+    for number in range(Config.SPECIES_AL):
+        speciesDistr.append(spec_al)
+    for number in range(Config.SPECIES_FL):
+        speciesDistr.append(spec_fl)
+    for number in range(Config.SPECIES_FO):
+        speciesDistr.append(spec_fo)
+    for number in range(Config.SPECIES_HO):
+        speciesDistr.append(spec_ho)
+    for number in range(Config.SPECIES_LA):
+        speciesDistr.append(spec_la)
+    for number in range(Config.SPECIES_LR):
+        speciesDistr.append(spec_lr)
+    for number in range(Config.SPECIES_PA):
+        speciesDistr.append(spec_pa)
+    for number in range(Config.SPECIES_RR):
+        speciesDistr.append(spec_rr)
+
 
     for number in range(Config.ABILITY_FA):
         abilityDistr.append(abilites1)

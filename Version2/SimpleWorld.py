@@ -218,7 +218,9 @@ class SimpleWorld:
                 msg += "|"
                 if creature != None:
                     # name
-                    msg += creature.speciesName[0].upper()
+                    msg += creature.speciesName[0:2].upper()
+
+                    msg += "."
 
                     # fly
                     if creature.canFly:
@@ -231,6 +233,8 @@ class SimpleWorld:
                     else:
                         msg += "-"
 
+                    msg += "."
+
                     # direction
                     if creature.direction == Direction.EAST:
                         msg += ">"
@@ -241,11 +245,8 @@ class SimpleWorld:
                     elif creature.direction == Direction.SOUTH:
                         msg += "V"
 
-
-                    
-
                 else:
-                    msg += "----"
+                    msg += "-------"
                 
                 if(isActiveCreature):
                     msg += "|#"
