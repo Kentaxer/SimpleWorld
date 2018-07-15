@@ -1,10 +1,10 @@
 class Config:
-    MAXHEIGHT = 4
-    MAXWIDTH = 4
+    MAXHEIGHT = 6
+    MAXWIDTH = 6
     HILLSKIPROUND = 1 #how many round would be hang by the hill
 
     #The generating possibility for creature
-    CREATURE_Y = 5 #Have creature
+    CREATURE_Y = 1 #Have creature
     CREATURE_N = 5 #No creature
 
     #The generating possibility for species
