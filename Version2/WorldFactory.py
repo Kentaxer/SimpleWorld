@@ -33,6 +33,8 @@ def generateDistr():
     spec_lr = Species.createLroverSpecies()
     spec_pa = Species.createPathFinderSpecies()
     spec_rr = Species.createRroverSpecies()
+    spec_hu = Species.createHumanSpecies()
+    spec_sh = Species.createSemiHumanSpecies()
 
     abilites1 = [Ability.FLY, Ability.ARCH]
     abilites2 = [Ability.ARCH]
@@ -74,7 +76,10 @@ def generateDistr():
         speciesDistr.append(spec_pa)
     for number in range(Config.SPECIES_RR):
         speciesDistr.append(spec_rr)
-
+    for number in range(Config.SPECIES_HU):
+        speciesDistr.append(spec_hu)
+    for number in range(Config.SPECIES_SH):
+        speciesDistr.append(spec_sh)
 
     for number in range(Config.ABILITY_FA):
         abilityDistr.append(abilites1)

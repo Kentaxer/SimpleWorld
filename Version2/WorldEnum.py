@@ -27,6 +27,7 @@ class OpCode(Enum):
     IFSAME = 6
     IFWALL = 7
     GO = 8
+    INTERACT = 9
 
 if __name__ == "__main__":
     print(OpCode.HOP)

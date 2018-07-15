@@ -40,6 +40,29 @@ class SimpleWorld:
             # get execute code
             executableOpcode = self.__activeCreature.getExecutableOpcode(isEnemy, isEmpty, isSame, isWall)
 
+
+            # for user interaction
+            if(executableOpcode == OpCode.INTERACT):
+                userinput = raw_input("""
+                Your turn 
+                press 'w' for Hop, 
+                press 'a' for turn left,  
+                press 'd' for turn right,
+                press 's' for infect
+                press other key for skip this round.
+                >""")
+                print("")
+                if(userinput == "w" or userinput == "W"):
+                    executableOpcode = OpCode.HOP
+                elif(userinput == "a" or userinput == "A"):
+                    executableOpcode = OpCode.LEFT
+                elif(userinput == "d" or userinput == "D"):
+                    executableOpcode = OpCode.RIGHT
+                elif(userinput == "s" or userinput == "S"):
+                    executableOpcode = OpCode.INFECT
+                
+
+
             # execute op
             if executableOpcode == OpCode.LEFT:
                 self.__activeCreature.turnLeft()

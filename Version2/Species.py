@@ -34,7 +34,8 @@ class Species:
         if currentInsOpCode == OpCode.HOP or  \
         currentInsOpCode == OpCode.LEFT or  \
         currentInsOpCode == OpCode.RIGHT or  \
-        currentInsOpCode == OpCode.INFECT:
+        currentInsOpCode == OpCode.INFECT or  \
+        currentInsOpCode == OpCode.INTERACT:
             return currentAddr
 
         elif currentInsOpCode == OpCode.GO or  \
@@ -282,6 +283,47 @@ runs into a wall or another rrover, it turns right.
         
         inss = [ins0, ins1, ins2,ins3, ins4, ins5, ins6, ins7, ins8, ins9]
         return Species("Rrover", inss)
+
+
+
+    @staticmethod
+    def createHumanSpecies():
+        '''
+Totally control by human
+        '''
+
+        ins0 = Instruction(OpCode.GO, 1)
+        ins1 = Instruction(OpCode.INTERACT, None)
+        ins2 = Instruction(OpCode.GO, 1)
+        
+        inss = [ins0, ins1, ins2]
+        return Species("Humanbeing", inss)
+
+
+
+    @staticmethod
+    def createSemiHumanSpecies():
+        '''
+Some case control by Human
+        '''
+
+        ins0 = Instruction(OpCode.GO, 1)
+        ins1 = Instruction(OpCode.IFENEMY, 9)
+        ins2 = Instruction(OpCode.IFWALL, 7)
+        ins3 = Instruction(OpCode.IFSAME, 7)
+        ins4 = Instruction(OpCode.IFEMPTY, 11)
+        ins5 = Instruction(OpCode.INTERACT, None)
+        ins6 = Instruction(OpCode.GO, 1)
+        ins7 = Instruction(OpCode.RIGHT, None)
+        ins8 = Instruction(OpCode.GO, 1)
+        ins9 = Instruction(OpCode.INFECT, None)
+        ins10 = Instruction(OpCode.GO, 1)
+        ins11 = Instruction(OpCode.HOP, None)
+        ins12 = Instruction(OpCode.GO, 1)
+        
+        inss = [ins0, ins1, ins2,ins3, ins4, ins5, ins6, ins7, ins8, ins9, ins10, ins11, ins12]
+        return Species("SHumanBeing", inss)
+
 
 
 if __name__ == "__main__":
